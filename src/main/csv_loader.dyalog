@@ -12,17 +12,8 @@ S ← (⎕CSV './src/test_data/1/5x5-middle/s.csv' '' 4) = 1
     ⎕OFF 1 
 :EndIf
 
-⍝ print lights out board
-⎕ ← 'X:' X ' Y:' Y ' S:' S
-
-⍝ funcion: neighborhood extractor
-NE ← {
-    r c ← ⍵
-    Nbr ← ¯1 0 1
-    ⍺[(⍳5)∩Nbr+r;(⍳5)∩Nbr+c]
-}
-
-⍝ debug print XOR XY
-XORXY ← ≠/ X Y
-⎕ ← 'X XOR Y:'XORXY
-
+:Namespace Utils
+    X
+    Y
+    S
+:EndNamespace

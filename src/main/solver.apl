@@ -18,8 +18,13 @@ S ← S = 1
 ⍝ print lights out board
 ⎕ ← 'X:' X ' Y:' Y ' S:' S
 
+⍝ funcion: neighborhood extractor
+NE ← {
+    r c ← ⍵
+    Nbr ← ¯1 0 1
+    ⍺[(⍳5)∩Nbr+r;(⍳5)∩Nbr+c]
+}
+
 ⍝ reverse cell from input
-⎕ ← 0 ⍱ 0
-⎕ ← 0 ⍱ 1
-⎕ ← 1 ⍱ 0
-⎕ ← 1 ⍱ 1
+PS ← { ≠/≠/ S NE ⍵ } ¨ ⍳ ⍴ S
+⎕ ← 'P(S):' PS ' Y:' Y ' Result:' (Y ≡ PS)

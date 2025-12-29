@@ -25,7 +25,6 @@ NE ← {
     ⍺[(⍳5)∩Nbr+r;(⍳5)∩Nbr+c]
 }
 
-⍝ debug print XOR XY
-XORXY ← ≠/ X Y
-⎕ ← 'X XOR Y:'XORXY
-
+⍝ reverse cell from input
+PS ← { ≠/≠/ S NE ⍵ } ¨ ⍳ ⍴ S
+⎕ ← 'P(S):' PS ' Y:' Y ' Result:' (Y ≡ PS)
